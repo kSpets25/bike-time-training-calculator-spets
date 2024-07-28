@@ -7,7 +7,7 @@ router.get("/", ({ session: { isLoggedIn } }, res) => {
 });
 
 router.get("/login", async (req, res) => {
-  if (req.session.isLoggedIn) return res.redirect("/");
+  if (req.session.isLoggedIn) return res.redirect("/private");
   res.render("login", { error: req.query.error });
 });
 
@@ -17,7 +17,14 @@ router.get("/signup", async (req, res) => {
 });
 
 router.get("/private", checkAuth, ({ session: { isLoggedIn } }, res) => {
-  res.render("protected", { isLoggedIn });
+  res.render("calculate", { isLoggedIn });
 });
+
+router.get("/calculate", async (req,res) => {
+  res.render("calculate", { result: null});
+})
+
+
+
 
 module.exports = router;
