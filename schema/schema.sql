@@ -7,7 +7,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE results (
-  id INT NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
   time VARCHAR (200) NOT NULL
 );
 

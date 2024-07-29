@@ -2,22 +2,23 @@
 <main>
   <h1>Calculate Your Bike Training Time</h1>
   <h4>Enter your information</h4>
-  <form class= "calculator" action="/calculate" method="POST">
+  <form class= "calc_form" action="/api/results" method="POST">
     <label for ="distance">Distance (km):</label>
-    <input type ="text" id="distance" name="distance" required><br><br>
+    <input type ="number" name="distance" id="distance" required><br><br>
 
-    <label for"speed">Speed (km/hr):</label>
-    <input type="text" id="speed" name="speed" required><br><br>
+    <label for ="speed">Speed (km/hr):</label>
+    <input type="number" name="speed" id="speed" required><br><br>
     <button type="submit">Calculate</button><br><br>
   </form>
-
-  {{#if result}}
+ 
+  {{#if results}}
+  console.log("bike time")
   <h2>Bike time</h2>
-  <p>Bike Time: {{result}}</p>
+  <p>Bike Time: {{mytime}}</p>
   {{/if}}
 
-  <form method="post" action="/calculate">
+ <form method="post" action="/calculate">
     <label for="add">Bike Time:</label> 
   </form>
-  <p id="result">Log Bike Time <a href="/log">Log Time</a>
+  <p id="result">Log Bike Time:<a href="/log">Log Time</a>
 </main>

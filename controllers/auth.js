@@ -1,6 +1,7 @@
 const { User } = require("../models");
 
 async function login(req, res) {
+  console.log("controllers")
   try {
     const { username, password } = req.body;
 
