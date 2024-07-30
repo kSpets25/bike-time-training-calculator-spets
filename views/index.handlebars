@@ -1,7 +1,7 @@
 {{> header}}
 <main>
   <h1>Welcome to the Bike Time Training Webstite!</h1>
-  <p>Currently, you are {{#unless isLoggedIn}} NOT {{/unless}} logged in.</p>
-  <p>You should {{#unless isLoggedIn}}NOT{{/unless}} be able to access <a href="/private">this page</a>.</p>
-  <p>To Get Started - Use the header above to {{#if isLoggedIn}} logout{{else}} login or create an account{{/if}}.</p>
+  <p>On this website you can calculate your bike time by entering your distance and speed.{{#unless isLoggedIn}} NOT {{/unless}}</p>
+  <p>Please Login or Sign Up to get started{{#unless isLoggedIn}}{{/unless}}  <a href="/calculate">Start Logging Bike Training Times</a>.</p>
+  <p>When you are finished {{#if isLoggedIn}}please log out{{else}} don't forget to Logout{{/if}}.</p>
 </main>

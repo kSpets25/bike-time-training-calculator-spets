@@ -1,9 +1,17 @@
 {{> header}}
 <main>
-
-  <h1>Calculate Your Bike Training Time</h1>
+  <h1>Welcome to the your training log!</h1>
+  <p>time {{time}}</p>
+  <p>distance {{distance}}</p>
+  <p>speed {{speed}}</p>
+ 
+<!-- 
+make a form with time distance and speed simailar to calculate form
+to submit to POST /api/training-log is in api routes.js
+-->
+ <h1>Add a previous bike training time</h1>
   <h4>Enter your information</h4>
-  <form class= "calc_form" action="/api/results" method="POST">
+  <form class= "calc_form" action="/api/training-log" method="POST">
     <label for ="distance">Distance (mi):</label>
     <input type ="number" name="distance" id="distance" step = "0.1" value="{{distance}}" required /><br><br>
 
@@ -18,8 +26,9 @@
   <p>Bike Time:  {{result}} hour(s)</p>
 
  {{/if}}
+
+
  
-  <p id="result">Log Your Time: 
-    <a href="/log{{#if result}}?time={{result}}&speed={{speed}}&distance={{distance}}{{/if}}">Log Time</a></p>
+  <p id="result">Log Your Time: <a href="/log{{#if result}}?time={{result}}&speed={{speed}}&distance={{distance}}{{/if}}">Log Time</a></p>
 
 </main>

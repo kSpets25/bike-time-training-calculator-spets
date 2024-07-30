@@ -1,27 +1,12 @@
-const { Results } = require("../models");
+const { Results } = require("../models/");
 console.log("in results");
 
+
+
 async function time(req, res) {
+  
   console.log("in in results");
-  /*  try {
-      const {time} = req.body;
   
-      if (!username || !password)
-        return res.redirect("/signup?error=must include username and password");
-  
-      const user = await User.create(username, password);
-  
-      if (!user) return res.redirect("/signup?error=error creating new user");
-  
-      req.session.isLoggedIn = true;
-      req.session.save(() => res.redirect("/"));
-    } catch (err) {
-      console.log(err);
-      return res.redirect(`/signup?error=${err.message}`);
-    }*/
-   
-   // router.post("/calculate", (req,res) => {
-    //  console.log("calc");
     try {
       const {distance, speed} = req.body;
       console.log("distance",distance,"speed",speed);
@@ -31,16 +16,19 @@ async function time(req, res) {
       }
       const mytime = distance / speed;
       console.log("mytime", mytime)
-     res.render('index', { result: `time required: $(time} hours`});
-     req.session.save(() => res.redirect("/calculate")); 
+
+     return res.redirect(`/calculate?time=${ mytime.toFixed(2)}&distance=${distance}&speed=${speed}`);
     } catch (err) {
-      console.log(err)
+      res.status(500).send(err.message)
+
     }
   }
- /*async function create(req, res, next) {
+//route function req, res no next/ write new
+//get user id from req.session.id 
+ async function create(req, res) {
   const {distance, speed} = req.body
   try {
-    const newResult = await new Results ({
+    const newResult = await Results.create ({
       distance,
       speed,
       time
@@ -50,12 +38,12 @@ async function time(req, res) {
   };
   await newResult.save()
   res.status(200).json(Results)
+  //redirect to /trainingLog
+  return res.redirect(`/calculate?time=${ mytime.toFixed(2)}&distance=${distance}&speed=${speed}`);
+  
   } catch {
     res.status(500).send(err.message)
   }
-//-------------*/
-//module.exports = router;
+ }
 
-  //}
-
-module.exports = { time };
+module.exports = ({time, create});

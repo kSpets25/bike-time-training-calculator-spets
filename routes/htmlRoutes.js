@@ -17,20 +17,16 @@ router.get("/signup", async (req, res) => {
   res.render("signup", { error: req.query.error });
 });
 
-router.get("/log", async (req, res) => {
-  if (req.session.isLoggedIn) return res.redirect("/log");
-  res.render("login", { error: req.query.error });
+router.get("/log", checkAuth, async ({ session: { isLoggedIn }, query:{time, distance, speed} }, res) => {
+
+  res.render("trainingLog", {isLoggedIn, time, distance, speed});
 });
 
-router.get("/private", checkAuth, ({ session: { isLoggedIn } }, res) => {
+router.get("/calculate", checkAuth, ({ session: { isLoggedIn }, query:{time, distance, speed} }, res) => {
   console.log("route priv")
-  res.render("calculate", { isLoggedIn });
+  res.render("calculate", { isLoggedIn, result: time, distance, speed});
 });
 
-router.get("/calculate", async (req,res) => {
-  console.log("route calc result", res.time)
-  res.render("calculate", { result: null});
-});
 
 
 

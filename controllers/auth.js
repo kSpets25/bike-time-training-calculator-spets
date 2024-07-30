@@ -4,7 +4,8 @@ async function login(req, res) {
   console.log("controllers")
   try {
     const { username, password } = req.body;
-
+    console.log("auth");
+    
     if (!username || !password)
       return res.redirect("/login?error=must include username and password");
 
@@ -19,6 +20,7 @@ async function login(req, res) {
       return res.redirect("/login?error=username or password is incorrect");
 
     req.session.isLoggedIn = true;
+    req.session.id = user.id
     req.session.save(() => res.redirect("/"));
   } catch (err) {
     res.status(500).send(err.message);
