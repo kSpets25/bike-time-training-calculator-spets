@@ -38,8 +38,9 @@ async function time(req, res) {
   };
   await newResult.save()
   res.status(200).json(Results)
+
   //redirect to /trainingLog
-  return res.redirect(`/calculate?time=${ mytime.toFixed(2)}&distance=${distance}&speed=${speed}`);
+  return res.redirect(`/trainingLog?time=${ mytime.toFixed(2)}&distance=${distance}&speed=${speed}`);
   
   } catch {
     res.status(500).send(err.message)
