@@ -1,7 +1,19 @@
 {{> header}}
 <main>
-  <h1>Welcome to the Bike Time Training Webstite!</h1>
-  <p>On this website you can calculate your bike time by entering your distance and speed.{{#unless isLoggedIn}} NOT {{/unless}}</p>
-  <p>Please Login or Sign Up to get started{{#unless isLoggedIn}}{{/unless}}  <a href="/calculate">Start Logging Bike Training Times</a>.</p>
-  <p>When you are finished {{#if isLoggedIn}}please log out{{else}} don't forget to Logout{{/if}}.</p>
+
+  <h1>Welcome To Your Bike Time Training Buddy!</h1>
+  <h3>Calculate your bike time by entering your distance and speed.{{#unless isLoggedIn}}{{/unless}}</h3>
+  <p>Login or Sign Up to get started{{#unless isLoggedIn}}{{/unless}}  <a href="/calculate"> Click here to calculate your bike time.</a></p>
+  <p>When you are finished {{#if isLoggedIn}}please log out.{{else}} don't forget to Logout.{{/if}}</p>
+
+  <h1> Image from External API</h1>
+  <a href="https://www.pexels.com">Photos provided by Pexels</a>
+
+This <a href="https://www.pexels.com/photo/food-dinner-lunch-meal-4147875">Photo</a> was taken by <a href="https://www.pexels.com/@daria">Daria</a> on Pexels.
+
+  <ul>
+      {{#each image}}
+        <li>{{this.name}}: {{this.value}}</li>
+      {{/each}}
+  </ul>
 </main>

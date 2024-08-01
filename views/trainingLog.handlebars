@@ -1,15 +1,18 @@
 {{> header}}
 <main>
   <h1>Welcome to the your training log!</h1>
-  <p>time {{time}}</p>
-  <p>distance {{distance}}</p>
-  <p>speed {{speed}}</p>
+  <p>Below are all rides starting with most recent</p>
+  {{#each rides}}
+  Distance {{distance}} Speed: {{speed}} Time: {{time}} Date: {{ride_date}}
+  </P>
+  {{/each}}
+
  
 <!-- 
 make a form with time distance and speed simailar to calculate form
 to submit to POST /api/training-log is in api routes.js
 -->
- <h1>Add a previous bike training time</h1>
+ <h2>Add a previous bike training time</h2>
   <h4>Enter your information</h4>
   <form class= "calc_form" action="/api/training-log" method="POST">
     <label for ="distance">Distance (mi):</label>
@@ -17,18 +20,18 @@ to submit to POST /api/training-log is in api routes.js
 
     <label for ="speed">Speed (mi/hr):</label>
     <input type="number" name="speed" id="speed" step = "0.1" value="{{speed}}" required><br><br>
-    <button type="submit">Calculate</button><br><br>
+    <label for ="time">Time (hours(s)):</label>
+    <input type="number" name="time" id="time" step = "0.1" value="{{time}}" required><br><br>
+    <label for ="ride_date">Ride Date:</label>
+    <input type="date" name="ride_date" id="ride_date"  required><br><br>
+    <button type="submit">Add to training log</button><br><br>
   </form>
  <ul>
  
-  {{#if result}}
-  <h2>Bike Training Time</h2>
-  <p>Bike Time:  {{result}} hour(s)</p>
-
- {{/if}}
+  
 
 
  
-  <p id="result">Log Your Time: <a href="/log{{#if result}}?time={{result}}&speed={{speed}}&distance={{distance}}{{/if}}">Log Time</a></p>
+  
 
 </main>

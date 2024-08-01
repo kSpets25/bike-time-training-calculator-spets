@@ -8,6 +8,7 @@ const apiRoutes = require("./routes/apiRoutes");
 const htmlRoutes = require("./routes/htmlRoutes");
 const app = express();
 const calculate = require("./controllers/results");
+const apiController = require("./controllers/apiController");
 
 const sessionStore = new MySQLStore({}, connection);
 app.use(

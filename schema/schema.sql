@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS results (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   distance DECIMAL (5,1),
   speed DECIMAL (5,1),
-  ride_time DATE, 
+  ride_time DECIMAL (5,1), 
+  ride_date date, 
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   user_id INT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE

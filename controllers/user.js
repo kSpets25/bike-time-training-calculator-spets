@@ -12,7 +12,7 @@ async function create(req, res) {
     if (!user) return res.redirect("/signup?error=error creating new user");
 
     req.session.isLoggedIn = true;
-    req.session.id = user.id  //this connects the user.id to the request object
+    req.session.user_id = user.id //this connects the user.id to the request object
     req.session.save(() => res.redirect("/"));
   } catch (err) {
     console.log(err);

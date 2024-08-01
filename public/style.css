@@ -2,8 +2,8 @@
   --black: #020303;
   --dark-grey: #171c1c;
   --light-grey: #a7b9b7;
-  --primary: #5cc1bb;
-  --primary-dark: #41aaa3;
+  --primary: #3667e3;
+  --primary-dark: #4788c6;
   --secondary: hsl(15deg 100% 62%);
   --secondary-light: hsl(15deg 100% 70%);
   --text-color: #f5fffe;
@@ -29,14 +29,15 @@ main {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  background-color: var(--black);
+  background-color: var(--dark-grey);
   padding: var(--space) calc(var(--space) * 3);
   text-align: center;
+  
 }
 
 main,
 main form {
-  border-radius: 4px;
+  border-radius: 20px;
 }
 
 h1 {
@@ -46,8 +47,14 @@ h2 {
   font-size: calc(var(--font-size) * 2);
 }
 h3 {
-  font-size: calc(var(--font-size) * 1.5);
+  font-size: calc(var(--font-size) * 1.1);
 }
+
+h4 {
+  font-size: calc(var(--font-size) * 1);
+}
+
+
 
 a {
   color: var(--secondary-light);

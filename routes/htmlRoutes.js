@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const controllers = require("../controllers");
 const checkAuth = require("../middleware/auth");
+const { Results } = require("../models");
 
 router.get("/", ({ session: { isLoggedIn } }, res) => {
   res.render("index", { isLoggedIn });
@@ -17,16 +18,16 @@ router.get("/signup", async (req, res) => {
   res.render("signup", { error: req.query.error });
 });
 
-router.get("/log", checkAuth, async ({ session: { isLoggedIn }, query:{time, distance, speed} }, res) => {
-
-  res.render("trainingLog", {isLoggedIn, time, distance, speed});
+router.get("/log", checkAuth, async ({ session: { isLoggedIn, user_id }, query:{time, distance, speed} }, res) => {
+  const rides = await Results.getall(user_id)
+  console.log("route priv")
+  res.render("trainingLog", {isLoggedIn, time, distance, speed, rides});
 });
 
 router.get("/calculate", checkAuth, ({ session: { isLoggedIn }, query:{time, distance, speed} }, res) => {
   console.log("route priv")
   res.render("calculate", { isLoggedIn, result: time, distance, speed});
 });
-
 
 
 

@@ -1,6 +1,5 @@
-const { Results } = require("../models/");
+const { Results } = require("../models");
 console.log("in results");
-
 
 
 async function time(req, res) {
@@ -25,26 +24,13 @@ async function time(req, res) {
   }
 //route function req, res no next/ write new
 //get user id from req.session.id 
- async function create(req, res) {
-  const {distance, speed} = req.body
-  try {
-    const newResult = await Results.create ({
-      distance,
-      speed,
-      time
-    })
-  if (!(title && body)) {
-    return res.status(400).send('result must include distance and speed')
-  };
-  await newResult.save()
-  res.status(200).json(Results)
-
-  //redirect to /trainingLog
-  return res.redirect(`/trainingLog?time=${ mytime.toFixed(2)}&distance=${distance}&speed=${speed}`);
+ async function create (req, res) {
+    const user_id = req.session.user_id;
+    const {distance, speed, time, ride_date} = req.body
+    await Results.create (user_id, distance, speed, time, ride_date) 
+        //redirect to /trainingLog
+      return res.redirect(`/log`);
+    
+    };
   
-  } catch {
-    res.status(500).send(err.message)
-  }
- }
-
 module.exports = ({time, create});
