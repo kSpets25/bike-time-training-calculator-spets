@@ -1,7 +1,9 @@
-const {fetchData} = require("../models");
+//const {fetchData} = require("../models");
 
 //try - route to render home page with external API
+//async function hello {console.log("hello")}
 async function images(req, res) {
+    console.log("in images")
 try {
     const image = req.body
     const data = await fetchData();

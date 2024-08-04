@@ -23,6 +23,7 @@ async function time(req, res) {
 
     }
   }
+
   
   async function create (req, res) {
       const user_id = req.session.user_id;
@@ -33,8 +34,8 @@ async function time(req, res) {
         return res.redirect(`/log`)
 
   }
-
-  async function update (req, res) {
+ 
+ /* async function update (req, res) {
     const resultsId = req.session.user_id;
     const  results = await Results.findOneAndUpdate(
       {id: resultsId},
@@ -53,6 +54,6 @@ async function time(req, res) {
     
       return res.redirect(`log`)
   }
-
+*/
   
-module.exports = ({time, create, update});
+module.exports = ({time, create});
