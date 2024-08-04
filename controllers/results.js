@@ -55,4 +55,4 @@ async function time(req, res) {
   }
 
   
-module.exports = ({time, create, update, remove});
+module.exports = ({time, create, update});
