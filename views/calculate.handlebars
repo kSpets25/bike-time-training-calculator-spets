@@ -15,11 +15,9 @@
  
   {{#if result}}
   <h2>Bike Training Time</h2>
-  <p>Bike Time:  {{result}} hour(s)</p>
-
- {{/if}}
+  <p>Bike Time: {{result}} hours</p>
+  {{/if}}
  
-  <p id="result">Log Your Time: 
-    <a href="/log{{#if result}}?time={{result}}&speed={{speed}}&distance={{distance}}{{/if}}">Log Time</a></p>
+  <p id="result">Log Your Time: <a href="/log{{#if result}}?time={{result}}&speed={{speed}}&distance={{distance}}{{/if}}">Log Time</a></p>
 
 </main>

@@ -9,7 +9,7 @@ router.get("/logout", controllers.auth.logout);
 router.post("/signup", controllers.user.create);
 router.post("/results", controllers.results.time);
 router.post("/training-log", controllers.results.create);
-//router.get("/apiController", controllers.apiModels.images);
+//router.post("/apiController", controllers.apiModels.images);
 
 
 module.exports = router;
