@@ -1,3 +1,5 @@
+const db = require("../config/connection");
+
 const axios = require('axios');
 import {createClient} from 'pixels';
 const client = createClient(Oz06SuDy16K4QiXlrRDnX5WEYFKEw7iMwiDuJ19YCZ3pNWTCQofRILfK)

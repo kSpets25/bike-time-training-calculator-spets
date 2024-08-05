@@ -4,20 +4,21 @@
   <p>Bike Training Log (starting with most recent).</p>
   
   {{#each rides}}
+  <p>
   Distance: {{distance}} 
   Speed: {{speed}} 
   Time: {{time}}  
   Date: {{ride_date}}
-  <p></p>
+  <button data-id = "{{id}}">delete</button>
   {{/each}}
-  
+  </p>
 
  
 <!-- 
 make a form with time distance and speed simailar to calculate form
 to submit to POST /api/training-log is in api routes.js
 -->
- <h2>Add a previous bike training time.:</h2>
+ <h2>Add bike training time.</h2>
   <h4>Enter your information</h4>
   <form class= "calc_form" action="/api/training-log" method="POST">
 
@@ -38,10 +39,5 @@ to submit to POST /api/training-log is in api routes.js
   </form>
  <ul>
  
-  
-
-
- 
-  
-
 </main>
+

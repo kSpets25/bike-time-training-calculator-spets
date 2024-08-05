@@ -14,18 +14,24 @@ async function create(user_id, distance, speed, ride_time, ride_date) {
 }
 
 async function getall (user_id) {
-  const [rows] = await db.query(`SELECT distance, speed, ride_time AS time, DATE_FORMAT (ride_date,"%m/%d/%Y") AS ride_date FROM results WHERE user_Id=? ORDER BY ride_date DESC`, [
+  const [rows] = await db.query(`SELECT id, distance, speed, ride_time AS time, DATE_FORMAT (ride_date,"%m/%d/%Y") AS ride_date FROM results WHERE user_Id=? ORDER BY ride_date DESC`, [
     user_id
   ])
   return rows
 }
 
-async function remove (user_id)  {
-  const [targetRows] = (deleteQuery, [user_id, date])
-  await db.query(`DELETE FROM sessions WHERE user_Id = ? AND session_date = ? LIMIT 1`), {
-    
-  }
+async function update (results)  {
+  await db.query(`UPDATE results SET distance,`)
+}
+
+
+async function remove (resultId)  {
+  const [{affectedRows}] = await db.query(`DELETE FROM results WHERE id = ? LIMIT 1`, 
+  resultId
+  )
+  return resultId
+   
 }
   module.exports = {
-    create, getall, remove,
+    create, getall, update, remove,
   };

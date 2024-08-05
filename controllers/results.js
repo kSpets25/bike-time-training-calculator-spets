@@ -26,34 +26,41 @@ async function time(req, res) {
 
   
   async function create (req, res) {
+    
+    try {
       const user_id = req.session.user_id;
       const {distance, speed, time, ride_date} = req.body
+      if (!(distance && speed && time && ride_date))
+        return res.status(400).send('distance speed time and ride date are required')
       await Results.create (user_id, distance, speed, time, ride_date) 
-      
           //redirect to /trainingLog
         return res.redirect(`/log`)
-
+    } catch(err) {
+    res.status(500).send(err.message)
+  } 
   }
  
- /* async function update (req, res) {
-    const resultsId = req.session.user_id;
-    const  results = await Results.findOneAndUpdate(
-      {id: resultsId},
-      {distance: distance, speed: speed, time: time},
-      {new: true}
-    )
-        return res.redirect(`/log`)
+  async function update (req, res) {
+    try {
+      const resultsId = req.session.user_id;
+      if (!(resultsId))
+        return res.status(400).send('no result found')
+      const results = await Results.findOneAndUpdate(
+        {id: resultsId},
+        {distance: distance, speed: speed, time: time},
+        {new: true}
+      )
+          return res.redirect(`/log`)
+      } catch(err) {
+        res.sttus((500).send(err.message))
+      }
   }
 
   async function remove (req, res) {
-    const targetDate = req.session.user_id.date;
-    const deleteQuery = await Results.findOneAndRemove
-      {deleteQuery, [user_id, targetDate],
-        console.err('Error deleting row', err);
-      }
-    
+    const deleteQuery = await Results.remove(req.params.resultId)
+     
       return res.redirect(`log`)
   }
-*/
+
   
-module.exports = ({time, create});
+module.exports = ({time, create, update, remove});

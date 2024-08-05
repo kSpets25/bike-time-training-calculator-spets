@@ -9,7 +9,8 @@ router.get("/logout", controllers.auth.logout);
 router.post("/signup", controllers.user.create);
 router.post("/results", controllers.results.time);
 router.post("/training-log", controllers.results.create);
-//router.post("/cntl", controllers.apiController.images);
+router.delete("/training-log/:resultId", controllers.results.remove);
+//router.("/cntl", controllers.apiController.images);
 
 
 module.exports = router;
