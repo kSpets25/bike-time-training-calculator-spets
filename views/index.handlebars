@@ -6,16 +6,6 @@
   <p>Login or Sign Up to get started{{#unless isLoggedIn}}{{/unless}}  <a href="/calculate"> Click here to calculate your bike time.</a></p>
   <p>When you are finished {{#if isLoggedIn}}please log out.{{else}} don't forget to Logout.{{/if}}</p>
 
-  <img src="images/{{public.image}}" alt="{image}"/>
+ 
 
-  <h1> Image from External API</h1>
-  <a href="https://www.pexels.com">Photos provided by Pexels {{image}}</a>
-<button type="submit">SeePic</button><br><br></form>
-
-This <a href="https://www.pexels.com/photo/food-dinner-lunch-meal-4147875">Photo</a> was taken by <a href="https://images.pexels.com/lib/api/pexels.png">Daria</a> on Pexels.
-  <ul>
-      {{#each image}}
-        <li>{{this.name}}: {{this.value}}</li>
-      {{/each}}
-  </ul>
-</main>
+ 
