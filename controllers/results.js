@@ -30,6 +30,7 @@ async function time(req, res) {
     try {
       const user_id = req.session.user_id;
       const {distance, speed, time, ride_date} = req.body
+    console.log("in r.create body",req.body)
       if (!(distance && speed && time && ride_date))
         return res.status(400).send('distance speed time and ride date are required')
       await Results.create (user_id, distance, speed, time, ride_date) 
@@ -57,9 +58,14 @@ async function time(req, res) {
   }
 
   async function remove (req, res) {
-    const deleteQuery = await Results.remove(req.params.resultId)
-     
-      return res.redirect(`log`)
+    const user_id = req.session.user_id;
+    const id = req.session.id;
+    console.log("r.remove user id", user_id); 
+   // console.log("r.remove id", id); 
+    console.log("r.remove res id",id); 
+   // const deleteRows = await Results.remove(req.params.resultId)
+    const deleteRows = await Results.remove(user_id)
+     return res.redirect(`log`)
   }
 
   

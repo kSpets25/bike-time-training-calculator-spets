@@ -14,7 +14,7 @@ async function create(user_id, distance, speed, ride_time, ride_date) {
 }
 
 async function getall (user_id) {
-  const [rows] = await db.query(`SELECT id, distance, speed, ride_time AS time, DATE_FORMAT (ride_date,"%m/%d/%Y") AS ride_date FROM results WHERE user_Id=? ORDER BY ride_date DESC`, [
+  const [rows] = await db.query(`SELECT id, user_id, distance, speed, ride_time AS time, DATE_FORMAT (ride_date,"%m/%d/%Y") AS ride_date FROM results WHERE user_Id=? ORDER BY ride_date DESC`, [
     user_id
   ])
   return rows
@@ -26,6 +26,7 @@ async function update (results)  {
 
 
 async function remove (resultId)  {
+ console.log("in R.remove",resultId)
   const [{affectedRows}] = await db.query(`DELETE FROM results WHERE id = ? LIMIT 1`, 
   resultId
   )

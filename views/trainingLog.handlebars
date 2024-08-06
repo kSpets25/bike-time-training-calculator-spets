@@ -3,17 +3,17 @@
   <h1>Welcome to the your training log!</h1>
   <p>Bike Training Log (starting with most recent).</p>
   
-  {{#each rides}}
-  <p>
-  Distance: {{distance}} 
-  Speed: {{speed}} 
-  Time: {{time}}  
-  Date: {{ride_date}}
-  <button data-id = "{{id}}">delete</button>
-  {{/each}}
-  </p>
+    {{#each rides}}
+    <p>
+      Distance: {{distance}} 
+      Speed: {{speed}} 
+      Time: {{time}}  
+      Date: {{ride_date}}
 
- 
+<a href="/api/remove"> DELETE ENTRY.</a>
+    </p>
+    {{/each}}
+
 <!-- 
 make a form with time distance and speed simailar to calculate form
 to submit to POST /api/training-log is in api routes.js
@@ -41,5 +41,13 @@ to submit to POST /api/training-log is in api routes.js
  
 </main>
 
-
-console.log('hello')
+<script>
+  function.onclick(e) = {
+    const deleteEntry = e.target
+    fetch(('/log/results') + resultId, {mehtod: DELETE})
+      .then(function(res) {
+        if (res.status === 200)
+        window.location.reload()
+  })
+  }
+ </script>
