@@ -2,22 +2,21 @@
 <main>
   <h1>Welcome to the your training log!</h1>
   <p>Bike Training Log (starting with most recent).</p>
+  <ul id="bike-delete">
+  {{#each rides}}
   
-    {{#each rides}}
     <p>
       Distance: {{distance}} 
       Speed: {{speed}} 
       Time: {{time}}  
       Date: {{ride_date}}
 
-<a href="/api/remove"> DELETE ENTRY.</a>
+    <button class = "delete-button" data-id = "{{id}}">delete</button>  
     </p>
+  </ul>
     {{/each}}
-
-<!-- 
-make a form with time distance and speed simailar to calculate form
-to submit to POST /api/training-log is in api routes.js
--->
+</ul>
+ 
  <h2>Add bike training time.</h2>
   <h4>Enter your information</h4>
   <form class= "calc_form" action="/api/training-log" method="POST">
@@ -35,19 +34,8 @@ to submit to POST /api/training-log is in api routes.js
     <input type="date" name="ride_date" id="ride_date"  required><br><br>
 
     <button type="submit">Add to training log</button><br><br>
-    
   </form>
- <ul>
- 
+
 </main>
 
-<script>
-  function.onclick(e) = {
-    const deleteEntry = e.target
-    fetch(('/log/results') + resultId, {mehtod: DELETE})
-      .then(function(res) {
-        if (res.status === 200)
-        window.location.reload()
-  })
-  }
- </script>
+ <script src = "/index.js"></script>

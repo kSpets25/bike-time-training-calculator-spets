@@ -26,7 +26,6 @@ async function update (results)  {
 
 
 async function remove (resultId)  {
- console.log("in R.remove",resultId)
   const [{affectedRows}] = await db.query(`DELETE FROM results WHERE id = ? LIMIT 1`, 
   resultId
   )

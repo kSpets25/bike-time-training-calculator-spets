@@ -4,7 +4,6 @@ async function login(req, res) {
   console.log("controllers")
   try {
     const { username, password } = req.body;
-    console.log("auth");
     
     if (!username || !password)
       return res.redirect("/login?error=must include username and password");

@@ -25,19 +25,11 @@ router.get("/log", checkAuth, async ({ session: { isLoggedIn, user_id }, query:{
 });
 
 router.get("/calculate", checkAuth, ({ session: { isLoggedIn }, query:{time, distance, speed} }, res) => {
-  console.log("route calc time",{time})
   res.render("calculate", { isLoggedIn, result: time, distance, speed});
 });
 
 router.get("/public/images", async (res, req) => {
   res.render("images", { error: req.query.error})
 })
-
-//router.get("/res", async ({session: { id }} , res) => {
- // router.get("/res", async (req, res) => { 
- // console.log("route res")
- // res.render("images", { error: req.query.error})
-//})
-
 
 module.exports = router;
