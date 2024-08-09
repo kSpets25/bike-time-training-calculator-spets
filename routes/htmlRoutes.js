@@ -20,7 +20,6 @@ router.get("/signup", async (req, res) => {
 
 router.get("/log", checkAuth, async ({ session: { isLoggedIn, user_id }, query:{time, distance, speed} }, res) => {
   const rides = await Results.getall(user_id)
-  console.log("route log")
   res.render("trainingLog", {isLoggedIn, time, distance, speed, rides});
 });
 

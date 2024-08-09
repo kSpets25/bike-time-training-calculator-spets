@@ -1,24 +1,24 @@
 :root {
   --black: #020303;
-  --dark-grey: #171c1c;
+  --dark-grey: #18171c;
   --light-grey: #a7b9b7;
   --primary: #3667e3;
-  --primary-dark: #4788c6;
-  --secondary: hsl(15deg 100% 62%);
-  --secondary-light: hsl(15deg 100% 70%);
+  --primary-dark: #193a59;
+  --secondary: hsl(159, 40%, 46%);
+  --secondary-light: hsl(159, 52%, 68%);
   --text-color: #f5fffe;
   --space: 16px;
   --font-size: 18px;
 }
 
 body {
-  background-color: var(--primary-dark);
+  background-color: var(--primary);
   color: var(--text-color);
   font-size: var(--font-size);
   line-height: 1.5;
   padding: 0;
   margin: 0;
-  font-family: helvetica;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -27,7 +27,7 @@ body {
 main {
   box-sizing: border-box;
   width: 100%;
-  max-width: 960px;
+  max-width: 1260px;
   margin: 0 auto;
   background-color: var(--dark-grey);
   padding: var(--space) calc(var(--space) * 3);
@@ -131,6 +131,8 @@ header .site-logo {
   margin-bottom: calc(var(--space) * 2);
   padding: calc(var(--space) * 0.5) calc(var(--space) * 1);
 }
+  
+
 
 @media screen and (max-width: 700px) {
   .site-logo {
@@ -143,4 +145,6 @@ header .site-logo {
   header a {
     margin: calc(var(--space) / 2);
   }
+
+  
 }
