@@ -27,7 +27,7 @@ body {
 main {
   box-sizing: border-box;
   width: 100%;
-  max-width: 1260px;
+  max-width: 960px;
   margin: 0 auto;
   background-color: var(--dark-grey);
   padding: var(--space) calc(var(--space) * 3);
