@@ -39,19 +39,17 @@ async function create(req, res) {
 
 async function update(req, res) {
   try {
-    const resultsId = req.session.user_id;
-    if (!(resultsId))
-      return res.status(400).send('no result found')
-    const results = await Results.findOneAndUpdate(
-      { id: resultsId },
+    const updateRows = req.session.resultId = await Results.update(
       { distance: distance, speed: speed, time: time },
       { new: true }
     )
-    return res.redirect(`/log`)
+    return res.send('updated')
   } catch (err) {
-    res.sttus((500).send(err.message))
+    res.status((500).send(err.message))
   }
 }
+
+
 
 async function remove(req, res) {
   const deleteRows = await Results.remove(req.params.resultId)
@@ -59,4 +57,4 @@ async function remove(req, res) {
 }
 
 
-module.exports = ({ time, create, update, remove });
+module.exports = ({ time, create, update, remove, update });

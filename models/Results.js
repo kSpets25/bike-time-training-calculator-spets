@@ -18,10 +18,13 @@ async function getall (user_id) {
     user_id
   ])
   return rows
-}
+} 
 
-async function update (results)  {
-  await db.query(`UPDATE results SET distance,`)
+async function update (resultId)  {
+  const [{updatedRows}] = await db.query(`UPDATE FROM results WHERE id = ? LIMIT 1,`,
+  resultId
+  )
+  return resultId
 }
 
 
@@ -33,5 +36,5 @@ async function remove (resultId)  {
    
 }
   module.exports = {
-    create, getall, update, remove,
+    create, getall, update, remove, update,
   };

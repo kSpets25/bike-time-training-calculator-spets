@@ -12,7 +12,7 @@
 }
 
 body {
-  background-color: var(--primary);
+  background-color: var(--light-grey);
   color: var(--text-color);
   font-size: var(--font-size);
   line-height: 1.5;
@@ -33,7 +33,13 @@ main {
   padding: var(--space) calc(var(--space) * 3);
   text-align: center;
   
+  
 }
+.responsive {
+  max-width: 100%;
+  height: 50%
+}
+
 
 main,
 main form {
@@ -95,7 +101,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: var(--black);
-  margin-bottom: calc(var(--space) * 6);
+  margin-bottom: calc(var(--space) * 3);
 }
 header a {
   margin: var(--space);
@@ -116,6 +122,32 @@ header .site-logo {
   font-weight: bold;
 }
 
+footer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--black);
+  margin-top: calc(var(--space) * 3);
+}
+
+.footerLinks {
+  text-align: center;
+  color: var(--text-color);
+  text-decoration: none;
+  margin: calc(var(--space) * 4) auto;
+  display: block;
+  font-size: calc(var(--font-size) * 2.5);
+  font-weight: bold;
+}
+
+footer .footerLinks {
+  font-size: calc(var(--font-size) * 1.5);
+  margin: var(--space);
+  /*margin-right: auto;*/
+}
+
+
 .login-form {
   display: flex;
   flex-direction: column;
@@ -132,7 +164,10 @@ header .site-logo {
   padding: calc(var(--space) * 0.5) calc(var(--space) * 1);
 }
   
-
+.homeImage {
+  width: 90%;
+    
+}
 
 @media screen and (max-width: 700px) {
   .site-logo {
@@ -145,6 +180,8 @@ header .site-logo {
   header a {
     margin: calc(var(--space) / 2);
   }
+
+  
 
   
 }

@@ -1,15 +1,19 @@
 {{> header}}
 <main>
   
-<form class= "pic" action="/api/cntl" method="POST"> 
+  <form class= "pic" action="/api/cntl" method="POST"> 
 
-  <h1>Welcome To Your Bike Time Training Calculator!</h1>
-  <h3>Calculate your bike time by entering your distance and speed.{{#unless isLoggedIn}}{{/unless}}</h3>
-  <p>Login or Sign Up to get started{{#unless isLoggedIn}}{{/unless}} </p>
-  <a href="/calculate"> Click here to calculate your bike time.</a>
-  <p>Your log times will be saved{{#if isLoggedIn}}.{{else}} don't forget to Logout.{{/if}}</p>
+    <h1>Welcome To Your Bike Time Training Calculator!</h1>
+    <h3>Calculate your bike time by entering your distance and speed.{{#unless isLoggedIn}}{{/unless}}</h3>
+    <p>Login or Sign Up to get started{{#unless isLoggedIn}}{{/unless}} </p>
+    <a href="/calculate"> Click here to calculate your bike time.</a>
+    <p>Your log times will be saved{{#if isLoggedIn}}.{{else}} don't forget to Logout.{{/if}}</p>
 
-  <img src="/images/pexels-dylanmhowell-1443527 (1).jpg" style="border: 5px insert black;">
+    <img class = "homeImage" src="/images/pexels-dylanmhowell-1443527 (1).jpg" style="border: 5px insert black;">
+
+</main>
+
+{{>footer}}
  
 
   
